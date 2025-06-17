@@ -11,7 +11,8 @@ export default async ({params}) => {
             </h1>
             <p>O usuario faz parte do cargo
                 {usuario.rows[0].cargo}
-            </p>
+            </p> 
+            
         </>
     )
 }
