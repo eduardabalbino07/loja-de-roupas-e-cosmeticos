@@ -1,49 +1,96 @@
 body {
     margin: 0;
     font-family: sans-serif;
-    background: white;
+    background: #f9f9f9;
   }
  
-  header {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: black;
     color: white;
-    padding: 10px 20px;
+    padding: 0px 50px;
+    gap: 20px;
    
-  }
- 
-  .logo {
-    font-size: 20px;
+}
+
+.carrinho {
+  width: 54px;     
+  height: auto;   
+}
+
+.perfil {
+  width: 28px;
+  border-radius: 50%;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+
+.logo {
+    font-size: 24px;
     font-weight: bold;
   }
- 
-  header input {
+
+header input {
     width: 40%;
-    padding: 5px;
-    border-radius: 4px;
+    padding: 8px;
+    border-radius: 6px;
     border: none;
-
-
   }
  
-  .icons span {
-    margin-left: 15px;
-    font-size: 20px;
+.icons span {
+    margin-left: 5px;
+    font-size: 10px;
     cursor: pointer;
   }
  
-  nav {
+nav {
     display: flex;
     justify-content: center;
-    background-color: #c794db; 
-    padding: 15px 0;
+    background-color: #c794db; /* Lilás claro */
+    padding: 5px 0;
   }
 
+.promo-titulo {
+  font-family: 'Lobster';
+  font-size: 40px;
+  color: white;
+  text-align: left;
+  margin-top: 50px;
+}
 
-  nav a {
-    margin: 0 20px; /* Espaço entre os botões */
+.promo-perfume {
+  font-family: 'Archivo Black';
+  font-size: 10px;
+  color: white;
+  text-align: right;
+  margin-top: 30px;
+}
+
+.preco-antigo {
+   font-family: 'Archivo Black';
+  font-size: 10px;
+  color: white;
+  text-align: right;
+  margin-top: 30px;
+  text-decoration: line-through red;
+}
+
+.preco-novo {
+   font-family: 'Archivo Black';
+  font-size: 10px;
+  color: white;
+  text-align: right;
+  margin-top: 30px;
+}
+
+nav a {
+    margin: 0 20px; /* Espaçamento entre os botões */
     text-decoration: none;
     color: white;
     padding: 0px 60px;
@@ -54,18 +101,16 @@ body {
   }
 
 
-  nav a:hover {
+nav a:hover {
     color: white;
   }
 
-
-  nav a.ativo {
+nav a.ativo {
     border-bottom: 4px solid white; /* Destaque do botão "Início" */
     color: white;
   }
 
-
-  .promocao {
+.promocao {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -74,52 +119,42 @@ body {
     padding: 30px 20px;
   }
  
-  .promocao .texto {
+.promocao .texto {
     margin: 0 20px;
     max-width: 400px;
   }
  
-  .preco-antigo {
+.container-branco {
+  width: 100%;
+  background: white;
+}
 
+.produtos {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  padding: 50px;
+}
 
-    text-decoration: line-through;
-  }
+.produto {
+  width: 200px; /* você pode ajustar esse valor */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.produto img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50px;
+  margin: 0;
+}
  
-  .preco-novo {
-    font-size: 18px;
-  }
- 
-  .produtos {
-    margin: 0 10px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    justify-content: center;
-    gap: 30px;
-    padding: 30px;
-    background: white;
-  }
- 
-  .produto {
-    margin: 0 5px;
-    display: flex;
-    background: #fff;
-    border-radius: 10px;
-    text-align: center;
-    width: 150px;
-    gap: 50px;
-    flex-wrap: wrap;
-  }
- 
-  .produto img {
-    margin: 0 30px;
-    display: flex;
-    width: 100%;
-    border-radius: 20px;
-    flex-wrap: wrap;
-  }
- 
-  footer {
+footer {
     display: flex;
     justify-content: space-around;
     background: #d3b5e0;

@@ -4,39 +4,47 @@
   <meta charset="UTF-8">
   <title>J&G Modas</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  
 </head>
 <body>
 
-
   <header>
-    <div class="logo"></div>
+    <div class="logo">
+    <img src="logo da loja.png" alt="Logo da Loja">
+    </div>
     <input type="text" placeholder="">
     <div class="icons">
-     <img src="download.png" alt="Carrinho de Compras">
+     <img src="carrinho de compras.png" alt="Carrinho de Compras" class="carrinho">
+     <img src="perfil.png" alt="Perfil" class="perfil">
     </div>
   </header>
 
-
   <nav>
-  <a href="#" class="ativo">Início</a> 
+  <a href="#" class="ativo">Início</a>
   <a href="#">Roupas Femininas</a>
   <a href="#">Infantil</a>
   <a href="#">Roupas Masculinas</a>
   <a href="#">Cosméticos</a>
-  
+ 
 </nav>
 
-
   <section class="promocao">
-    <div class="texto">
-      <h1>PROMOÇÃO DO DIA</h1>
-      <p><strong>Perfume Ilía Secreto</strong></p>
-      <p><strong>Feminino 50 ml</strong></p>
+  <div class="promo-titulo"> 
+    <h1>PROMOÇÃO<br>DO DIA</h1>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 5px;">
+    <div class="texto" style="text-align: right;">
+      <p class="promo-perfume">Perfume Ilía Secreto</p>
+      <p class="promo-perfume">Feminino 50 ml</p>
       <p class="preco-antigo">De: R$ 185,00</p>
       <p class="preco-novo">Por: R$ 130,00</p>
     </div>
-    <img src="data:image/jpeg;base64,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" alt="" width="200" height="200">
-  </section>
+    <img src="ilia.png" alt="Perfume Ilía Secreto" width="200" height="200">
+  </div>
+</section>
 
 
   <section class="produtos">
@@ -96,7 +104,6 @@
       <p>@jg.modass18</p>
     </div>
   </footer>
-
 
 </body>
 </html>
