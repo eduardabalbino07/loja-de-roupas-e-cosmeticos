@@ -3,7 +3,7 @@ export default function ClienteList({Cliente, onDeleteCliente}) {
         <ul>
             {Cliente.map((cliente) => (
                 <li key={Cliente.id} >
-                    <span>{Cliente.nameid} - {Cliente.emailid} - {Cliente.telefone} - {Cliente.endereco} - {Cliente.senha} - {Cliente.concluido ? 'Concluído' : 'Pendente'}</span>
+                    <span>{Cliente.nameid} - {Cliente.emailid} - {Cliente.telefone} - {Cliente.senha} - {Cliente.concluido ? 'Concluído' : 'Pendente'}</span>
                     <button style={{backgroundColor:"transparent", color:"#F00"}}
                     onClick={() => onDeleteCliente(Cliente.id)}
                     >

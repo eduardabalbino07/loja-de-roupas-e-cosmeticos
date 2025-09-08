@@ -4,16 +4,14 @@ export default function UsuarioForm ({ onAddUsuario }) {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [telefone, setTelefone] = useState ('')
-    const [endereco, setEndereco] = useStage ('')
     const [senha, setSenha] = useStage ('')
 
     const handleSubmit = (e) => {
         e.preventDefault ()
-        onAddUsuario({ name, email, telefone, endereco, senha})
+        onAddUsuario({ name, email, telefone, senha})
         setName('')
         setEmail('')
         setTelefone('')
-        setEndereco('')
         setSenha('')
     }
 
@@ -36,12 +34,6 @@ export default function UsuarioForm ({ onAddUsuario }) {
             placeholder= "Telefone do Usuario"
             value={telefone}
             onCharge= {(e) => setTelefone(e.target.value)}
-        />
-            <input
-            type= "text"
-            placeholder= "Endereco do Usuario"
-            value= {endereco}
-            onCharge= {(e) => setEndereco(e.target.value)}
         />
             <input
             type= "text"
