@@ -45,7 +45,7 @@ export default function ClienteProdutos() {
     <a href= "paginainicial" className={style.outrapagina}></a>
             
       <header className={style.header}>
-        <img src= "logo da loja.png" alt="" width={120}/>
+        <img src= "logo da loja.png" alt="" width={100}/>
         <header className={style.header1}>
         <img src= "iconperfil.png.png" alt="" width={50}/>
         <header className={style.header2}>
@@ -70,10 +70,15 @@ export default function ClienteProdutos() {
 
       <section className={style.promocao}>
         <h1>PROMOÇÃO <br></br> DO DIA</h1>
+        <section className={style.promocaonome}>
         <p>
           Perfume Ilía Secreto <br></br> Feminino 50 ml <br></br> De: R$ 185,00 <br></br> Por: R$ 140,00
         </p>
-        <img src="ilia.png" alt="" />
+        <div className={style.promoimg}>
+          <img src="ilia.png" alt="" />
+
+        </div>
+        </section>
       </section>
 
       <section className={style.produtos}>

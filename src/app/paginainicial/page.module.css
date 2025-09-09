@@ -1,35 +1,108 @@
 .header {
     text-align: left;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 
 .header1 {
-    text-align: height;
-    margin-top: 20px;
-}
 
+    text-align: right;
+    margin-top: 20px;  
+}
 
 .header2 {
-    text-align: right;
     margin-top: 20px;
+    margin-left: 5px;
 }
-.nav {
-    text-align: center;
-    margin-top: 20px;
-     display: flex;
-}
-
 
 .promocao {
+    font-size: 40px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
      display: flex;
+     background-color: #533562;
 }
 
+.promocaonome {
+  font-size:20px;
+}
 
 .outrapagina {
     text-align: center;
     margin-top: 20px;
-     display: flex;
+    display: flex;
+}
+/*
+.nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0%;
+  padding: 0%;
+}
+
+.nav li {
+  margin: 0 120px;
+  
+}
+
+.nav a {
+  color: white;
+  font-size: 16px;
+}
+*/
+
+.nav {
+  display: flex;
+  justify-content: center;
+  background-color: #7a1e6a; /* Cor de fundo para a navegação */
+  padding: 5px 0; /* Diminuir o padding superior e inferior */
+  margin-top: 0; /* Remover qualquer margem superior */
+}
+
+.nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: -140; /* Remover qualquer margem da lista */
+  padding: 0; /* Remover qualquer padding da lista */
+}
+
+.nav li {
+  margin: 0 120px; /* Ajustar espaçamento entre os itens do menu */
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-top: -10%;
+}
+
+.search input {
+  width: 30%;
+  height: 30px; 
+  padding: 10px; 
+  font-size: 16px; 
+  color: black;
+  border: 1px solid white; 
+  border-radius: 5px; 
+  background-color: white;
 }
