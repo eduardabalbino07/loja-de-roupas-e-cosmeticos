@@ -44,10 +44,14 @@ export default function ClienteProdutos() {
     <div>
     <a href= "paginainicial" className={style.outrapagina}></a>
             
-        <header className={style.header}>
+      <header className={style.header}>
         <img src= "logo da loja.png" alt="" width={120}/>
-        <img src= "iconperfil.png.png" alt="" width={120}/>
-        <img src= "carrinho.png.png" alt="" width={120}/>
+        <header className={style.header1}>
+        <img src= "iconperfil.png.png" alt="" width={50}/>
+        <header className={style.header2}>
+        <img src= "carrinho.png.png" alt="" width={70}/>
+        </header>
+        </header>
       </header>
        <section></section>
         <nav className={style.nav}>
