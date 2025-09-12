@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f9f9f9;
-  color: #141212;
+  color: #ffffff;
 }
 
 .outrapagina {
@@ -33,7 +33,7 @@ body {
   align-items: center;
   margin-left: 10px;
 }
-
+/*
 .nav {
   background-color: #722c8d;
 }
@@ -46,25 +46,30 @@ body {
   padding: 10px;
   gap: 30px;
 }
-
+*/
 .search {
   display: flex;
   justify-content: center;
   margin: 10px 0;
+  
 }
 
 .promocao {
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 10px;
      display: flex;
      background-color: #533562;
 }
 
 .promocaonome {
   font-size:20px;
+  margin-left: 40%;
 }
 
+.promoimg {
+  margin-left: 100%;
+}
 /*
 .nav ul {
   display: flex;
@@ -79,15 +84,15 @@ body {
 }
 
 .nav a {
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 16px;
+  
 }
 */
 
 .nav {
   display: flex;
   justify-content: center;
-  background-color: #7a1e6a; 
   padding: 5px 0; 
   margin-top: 0; 
 }
@@ -101,10 +106,49 @@ body {
 
 .nav li {
   margin: 0 120px; 
+ 
 }
 
 .nav a {
   color: white;
   text-decoration: none;
   font-size: 16px;
+  
+}
+
+/*produtos*/
+.produtoscards {
+  display:flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.produto {
+  text-align: center;
+  color: #0a0a0a;
+  flex: 0 1 18%;
+  margin-top: 20px;
+}
+
+.produto img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+}
+
+
+
+/*rodape*/
+.footer {
+  background-color: #b18dc4;
+  color: white;
+  padding: 20px;
+  text-align: left;
+  margin: 5px 0;
+  font-size: 14px;
+}
+.rodape {
+  display: flex;
+  align-items: center;
+
 }
