@@ -4,7 +4,6 @@ export default function ClienteForm({ onAddCliente }) {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [telefone, setTelefone] = useState ('')
-    const [endereco, setEndereco] = useStage ('')
     const [senha, setSenha] = useStage ('')
     const [concluido, setConcluido] = useStage (false)
 
@@ -14,7 +13,6 @@ export default function ClienteForm({ onAddCliente }) {
         setName('')
         setEmail('')
         setTelefone('')
-        setEndereco('')
         setSenha('')
         setConcluido(false)
     }
@@ -40,12 +38,6 @@ export default function ClienteForm({ onAddCliente }) {
             placeholder= "Telefone do Usuario"
             value={telefone}
             onCharge= {(e) => setTelefone(e.target.value)}
-        />
-            <input
-            type= "text"
-            placeholder= "Endereco do Usuario"
-            value= {endereco}
-            onCharge= {(e) => setEndereco(e.target.value)}
         />
             <input
             type= "text"
