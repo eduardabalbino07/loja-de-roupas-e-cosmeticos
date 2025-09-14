@@ -15,11 +15,11 @@ export async function GET() {
 
 export async function POST(request) {
   try {
-    const { name, email, telefone, endereco, senha, criarumaconta} = await request.json()
+    const { name, email, telefone, senha, criarumaconta} = await request.json()
     const usuario = await pool.connect()
     await usuario.query(
-      'INSERT INTO conta (name, email, telefone, endereco, senha, criarumaconta) VALUES ($1, $2, $3)',
-      [name, email, telefone, endereco, senha, criarumaconta]
+      'INSERT INTO conta (name, email, telefone, senha, criarumaconta) VALUES ($1, $2, $3)',
+      [name, email, telefone, senha, criarumaconta]
     )
     usuario.release()
     return NextResponse.json({ status: 201 })
