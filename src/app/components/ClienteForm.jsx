@@ -9,7 +9,7 @@ export default function ClienteForm({ onAddCliente }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        onAddCliente({ name, email, telefone, endereco, senha })
+        onAddCliente({ name, email, telefone, senha })
         setName('')
         setEmail('')
         setTelefone('')

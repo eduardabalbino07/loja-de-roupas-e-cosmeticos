@@ -25,7 +25,7 @@ export default function ClienteConta() {
             if (response.ok) {
                 const data = await response.json()
                 const id = data.id
-                route.push(`/perfil/${id}`)
+                route.push(`/`)
             } else {
                 const errorData = await response.json()
                 alert(`Erro ao fazer login: ${errorData.error}`)

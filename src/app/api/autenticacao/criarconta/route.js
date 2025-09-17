@@ -7,7 +7,7 @@ export async function POST(request) {
         const{nome, email, telefone, senha} = await request.json()
         const client = await pool.connect()
         const result = await client.query(
-            'SELECT * FROM cadastro WHERE nome = $1  email = $2 AND telefone = $3',
+            'SELECT * FROM cadastro WHERE nome = $1 AND email = $2 AND telefone = $3 AND senha = $4',
             [nome, email, telefone, senha]
         )
 
