@@ -34,7 +34,7 @@ export default function ProdutoBlusa() {
   return (
   <header className={style.header}>
 
-    <img src="/logo da loja.png" alt="J&G" width={50} height={50} />
+  
 
     <div className={style.pesquisar}>
     <input type="text" placeholder="" />
@@ -51,7 +51,7 @@ export default function ProdutoBlusa() {
       <div className={style.produtoImagem}>
         <img src="/blusamangalonga.png" alt="Blusa Manga Longa" width={200} />
       </div>
-        
+
       <div className={style.produtoInfo}>
         <h2>Blusa Manga Longa</h2>
         <p><strong>R$ 30,00</strong></p>
@@ -62,9 +62,10 @@ export default function ProdutoBlusa() {
             <button 
               className={`${style.corOpcao} ${cor === 'Preto' ? style.selecionado : ''}`} 
               onClick={() => setCor('Preto')}
-              style={{ backgroundColor: '#0f0f0fff' }}
+              style={{ backgroundColor: '#000000ff' }}
             ></button>
           </div>
+
 
           <div className={style.campo}>
             <span>Tamanho:</span>
