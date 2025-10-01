@@ -1,21 +1,38 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import style from "./page.module.css";
 
-export default function ProdutoBlusa() {
-  const [cor, setCor] = useState('Preto')
-  const [tamanho, setTamanho] = useState('P')
+export default function ProdutoBlusa({params}) {
+  const {id} = params
+  const [produtos, setProdutos ] = useState(null)
+  const [cor, setCor] = useState('')
+  const [tamanho, setTamanho] = useState('')
   const [quantidade, setQuantidade] = useState(1)
 
   const route = useRouter()
+
+  useEffect(() => {
+    const fetchProduto = async () => {
+      const res = await fetch(`/api/produto/${id}`)
+      const data = await res.json()
+      setProdutos(data)
+      setCor(data.cores[0])
+      setTamanho(data.tamanhos[0])
+    }
+    fetchProduto()
+  }, [id])
+
+  if (!produto) return <p> carregando 
+
+  </p>
 
   const adicionarAoCarrinho = async () => {
     try {
       const response = await fetch('/api/carrinho/adicionar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ produto: "Blusa Manga Longa", cor, tamanho, quantidade })
+        body: JSON.stringify({ produto, cor, tamanho, quantidade })
         
       })
 
@@ -41,7 +58,7 @@ export default function ProdutoBlusa() {
     
      <div className={style.produtoPage}>
       <div className={style.produtoImagem}>
-        <img src="/blusamangalonga.png" alt="Blusa Manga Longa" width={200} />
+        <img src={produto.imagem} alt="produto.nome" width={200} />
       </div>
 
       <div className={style.produtoInfo}>
@@ -51,25 +68,28 @@ export default function ProdutoBlusa() {
         <div className={style.opcoes}>
           <div className={style.campo}>
             <span>Cor:</span>
-            <button 
-              className={`${style.corOpcao} ${cor === 'Preto' ? style.selecionado : ''}`} 
-              onClick={() => setCor('Preto')}
+            {produto.cores.map(c => (
+              <button 
+              key={c}
+              onClick={() => setCor(c)}
               style={{ backgroundColor: '#000000ff' }}
             ></button>
+            ))}
           </div>
 
 
           <div className={style.campo}>
             <span>Tamanho:</span>
-            {['P','M','G'].map((t) => (
+            {produto.tamanhos.map(t => (
               <button 
-                key={t} 
-                className={`${style.tamanhoOpcao} ${tamanho === t ? style.selecionado : ''}`} 
-                onClick={() => setTamanho(t)}
+                
+                className={`${style.tamanhoOpcao}`} 
+                onClick={() => setTamanho()}
               >
-                {t}
+                {}
               </button>
             ))}
+
           </div>
 
           <div className={style.campo}>
