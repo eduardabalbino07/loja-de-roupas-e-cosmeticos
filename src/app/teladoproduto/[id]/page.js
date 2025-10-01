@@ -16,6 +16,7 @@ export default function ProdutoBlusa() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ produto: "Blusa Manga Longa", cor, tamanho, quantidade })
+        
       })
 
       if (response.ok) {
@@ -37,16 +38,7 @@ export default function ProdutoBlusa() {
   
 
     <div className={style.pesquisar}>
-    <input type="text" placeholder="" />
-
-    <div className={style.header1}>
-            <button className={style.iconeBotao} aria-label="Carrinho">
-              <img src="/carrinho.png.png" alt="" width={50} height={30} />
-            </button>
-            <button className={style.iconeBotao} aria-label="Perfil">
-              <img src="/iconperfil.png.png" alt="" width={50} height={30} />
-            </button>
-          </div>
+    
      <div className={style.produtoPage}>
       <div className={style.produtoImagem}>
         <img src="/blusamangalonga.png" alt="Blusa Manga Longa" width={200} />

@@ -51,14 +51,14 @@ export default function RootLayout({ children }) {
           <div>
             <p className={style.footerTitle}>FORMAS DE PAGAMENTO</p>
             <div className={style.footerIcons}>
-              <img src="logopix.png.png" alt="PIX"/>
+              <img src="logopix.png" alt="PIX"/>
             </div>
           </div>
 
           <div>
             <p className={style.footerTitle}>NÂO ENCONTROU O QUE PROCURAVA?<br />FALE CONOSCO.</p>
             <div className={style.footerIcons}>
-              <img src="logowhatsapp.png.png" alt=""/>
+              <img src="logowhatsapp.png" alt=""/>
             <p><strong>(83) 987375521</strong></p>
             <p><strong>(83) 987680837</strong></p>
             </div>
@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
           <div>
             <p className={style.footerTitle}>SIGAM NOSSO INSTAGRAM</p>
             <div className={style.footerIcons}>
-              <img src="logoinstagram.png.png" alt="Instagram"/>
+              <img src="logoinstagram.png" alt="Instagram"/>
               <span>@jg.modass18</span>
             </div>
            </div>

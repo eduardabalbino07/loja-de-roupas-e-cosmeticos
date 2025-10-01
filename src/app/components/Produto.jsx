@@ -11,3 +11,5 @@ export default ({produto:{id, srcImage, alt, nome, preco}}) => (
     </div>
 );
 
+    
+
