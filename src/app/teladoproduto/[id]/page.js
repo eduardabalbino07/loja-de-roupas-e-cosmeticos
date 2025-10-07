@@ -1,10 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import style from "./page.module.css";
 
-export default function ProdutoBlusa({params}) {
-  const {id} = params
+export default function ProdutoBlusa( ) {
+  const {id} = useParams()
   const [produtos, setProdutos ] = useState(null)
   const [cor, setCor] = useState('')
   const [tamanho, setTamanho] = useState('')
@@ -13,27 +13,33 @@ export default function ProdutoBlusa({params}) {
   const route = useRouter()
 
   useEffect(() => {
-    const fetchProduto = async () => {
-      const res = await fetch(`/api/produto/${id}`)
-      const data = await res.json()
-      setProdutos(data)
-      setCor(data.cores[0])
-      setTamanho(data.tamanhos[0])
+  const fetchProduto = async () => {
+    const res = await fetch(`/api/produto/${id}`)
+    if (!res.ok) {
+      console.error("Erro ao buscar produto:", res.status)
+      return
     }
-    fetchProduto()
-  }, [id])
+    const produtoEncontrado = await res.json() 
+    setProdutos(produtoEncontrado)
 
-  if (!produto) return <p> carregando 
+    if (produtoEncontrado) {
+      setCor(produtoEncontrado.cores[0])
+      setTamanho(produtoEncontrado.tamanhos[0])
+    }
+  }
+  fetchProduto()
+}, [id])
 
-  </p>
+
+  if (!produtos) return <p> carregando...</p>
 
   const adicionarAoCarrinho = async () => {
     try {
-      const response = await fetch('/api/carrinho/adicionar', {
+      const response = await fetch('/api/carrinho', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ produto, cor, tamanho, quantidade })
-        
+        body: JSON.stringify({ produtos, cor, tamanho, quantidade })
+
       })
 
       if (response.ok) {
@@ -58,21 +64,21 @@ export default function ProdutoBlusa({params}) {
     
      <div className={style.produtoPage}>
       <div className={style.produtoImagem}>
-        <img src={produto.imagem} alt="produto.nome" width={200} />
+        <img src={produtos.imagem_url} alt={produtos.nome} width={200} />
       </div>
 
       <div className={style.produtoInfo}>
-        <h2>Blusa Manga Longa</h2>
-        <p><strong>R$ 30,00</strong></p>
+        <h2>{produtos.nome}</h2>
+        <p><strong>R$ {produtos.preco}</strong></p>
 
         <div className={style.opcoes}>
           <div className={style.campo}>
             <span>Cor:</span>
-            {produto.cores.map(c => (
-              <button 
+            {produtos.cores.map(c => (
+              <button
               key={c}
               onClick={() => setCor(c)}
-              style={{ backgroundColor: '#000000ff' }}
+              style={{ backgroundColor: c }}
             ></button>
             ))}
           </div>
@@ -80,13 +86,13 @@ export default function ProdutoBlusa({params}) {
 
           <div className={style.campo}>
             <span>Tamanho:</span>
-            {produto.tamanhos.map(t => (
-              <button 
-                
-                className={`${style.tamanhoOpcao}`} 
-                onClick={() => setTamanho()}
+            {produtos.tamanhos.map(t => (
+              <button
+
+                className={`${style.tamanhoOpcao}`}
+                onClick={() => setTamanho(t)}
               >
-                {}
+                {t}
               </button>
             ))}
 

@@ -1,15 +1,13 @@
 import { NextResponse } from "next/server";
 import pool from "@/lib/db";
 
-export async function GET(request) {
+export async function GET(request, {params}) {
     try {
-        const {searchParams} = new URL (request.url)
-        const usuarioId = searchParams.get('usuarioId')
+        const {usuarioId}= await params;
 
         const client = await pool.connect( )
         const result = await client.query(
-        `SELECT from p.produtos, p.nome, p.preco, p.quantidade, p.cor
-        WHERE u.usuario_id = $1`
+        `SELECT p.nome, c.quantidade from item_carrinho i join produtos p ON (p.id = i.id_produto) WHERE i.usuario_id = $1`
         [usuarioId]
           )
           client.release()
