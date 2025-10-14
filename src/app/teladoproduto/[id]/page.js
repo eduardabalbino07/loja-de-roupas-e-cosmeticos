@@ -23,8 +23,8 @@ export default function ProdutoBlusa( ) {
     setProdutos(produtoEncontrado)
 
     if (produtoEncontrado) {
-      setCor(produtoEncontrado.cores[0])
-      setTamanho(produtoEncontrado.tamanhos[0])
+      setCor(produtoEncontrado.cores?.[0] ?? '')
+      setTamanho(produtoEncontrado.tamanhos?.[0] ?? '')
     }
   }
   fetchProduto()
@@ -56,63 +56,65 @@ export default function ProdutoBlusa( ) {
   }
 
   return (
-  <header className={style.header}>
-
-  
-
-    <div className={style.pesquisar}>
-    
-     <div className={style.produtoPage}>
-      <div className={style.produtoImagem}>
-        <img src={produtos.imagem_url} alt={produtos.nome} width={200} />
-      </div>
-
-      <div className={style.produtoInfo}>
-        <h2>{produtos.nome}</h2>
-        <p><strong>R$ {produtos.preco}</strong></p>
-
-        <div className={style.opcoes}>
-          <div className={style.campo}>
-            <span>Cor:</span>
-            {produtos.cores.map(c => (
-              <button
-              key={c}
-              onClick={() => setCor(c)}
-              style={{ backgroundColor: c }}
-            ></button>
-            ))}
+    <header className={style.header}>
+      <div className={style.pesquisar}>
+        <div className={style.produtoPage}>
+          <div className={style.produtoImagem}>
+            <img src={produtos.imagem_url} alt={produtos.nome} width={200} />
           </div>
 
+          <div className={style.produtoInfo}>
+            <h2>{produtos.nome}</h2>
+            <p><strong>R$ {produtos.preco}</strong></p>
 
-          <div className={style.campo}>
-            <span>Tamanho:</span>
-            {produtos.tamanhos.map(t => (
-              <button
+            <div className={style.opcoes}>
+          
+              {produtos.tipo !== 'perfume' && produtos.cores && produtos.cores.length > 0 && (
+                <div className={style.campo}>
+                  <span>Cor:</span>
+                  {(produtos.cores || []).map(c => (
+                    <button
+                      key={c}
+                      onClick={() => setCor(c)}
+                      aria-pressed={cor === c}
+                      className={cor === c ? style.colorSelected : style.colorButton}
+                      title={c}
+                      style={{ backgroundColor: c, color:"#d588e3" }}
+                    >{c}</button>
+                  ))}
+                </div>
+              )}
 
-                className={`${style.tamanhoOpcao}`}
-                onClick={() => setTamanho(t)}
-              >
-                {t}
-              </button>
-            ))}
+              {/* Exibir opções de tamanho somente quando existirem e quando o produto não for perfume */}
+              {produtos.tipo !== 'perfume' && produtos.tamanhos && produtos.tamanhos.length > 0 && (
+                <div className={style.campo}>
+                  <span>Tamanho:</span>
+                  {(produtos.tamanhos || []).map(t => (
+                    <button
+                      key={t}
+                      className={`${style.tamanhoOpcao} ${tamanho === t ? style.tamanhoSelected : ''}`}
+                      onClick={() => setTamanho(t)}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              )}
 
-          </div>
+              <div className={style.campo}>
+                <span>Quantidade:</span>
+                <button onClick={() => setQuantidade(q => Math.max(1, q - 1))}>-</button>
+                <span>{quantidade}</span>
+                <button onClick={() => setQuantidade(q => q + 1)}>+</button>
+              </div>
+            </div>
 
-          <div className={style.campo}>
-            <span>Quantidade:</span>
-            <button onClick={() => setQuantidade(q => Math.max(1, q - 1))}>-</button>
-            <span>{quantidade}</span>
-            <button onClick={() => setQuantidade(q => q + 1)}>+</button>
+            <button className={style.botaoCarrinho} onClick={adicionarAoCarrinho}>
+              Adicionar ao carrinho
+            </button>
           </div>
         </div>
-
-        <button className={style.botaoCarrinho} onClick={adicionarAoCarrinho}>
-          Adicionar ao carrinho 
-        </button>
-        </div>
-       </div>
       </div>
-      </header>
-
+    </header>
   )
 }
