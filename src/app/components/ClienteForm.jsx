@@ -4,8 +4,8 @@ export default function ClienteForm({ onAddCliente }) {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [telefone, setTelefone] = useState ('')
-    const [senha, setSenha] = useStage ('')
-    const [concluido, setConcluido] = useStage (false)
+    const [senha, setSenha] = useState ('')
+    const [concluido, setConcluido] = useState (false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
