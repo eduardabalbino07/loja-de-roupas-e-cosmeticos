@@ -24,26 +24,26 @@ export default function ClienteForm({ onAddCliente }) {
             type= "text"
             placeholder="Nome do Usuario"
             value={name}
-            onCharge={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
         />
 
-        <input
+        <input  
             type= "text"
-            placeholder="Email do Usuario"
+            placeholder="Email do Usuario" 
             value={email}
-            onCharge= {(e) => setEmail(e.target.value)}
+            onChange= {(e) => setEmail(e.target.value)}
         />
             <input
             type= "number"
             placeholder= "Telefone do Usuario"
             value={telefone}
-            onCharge= {(e) => setTelefone(e.target.value)}
+            onChange= {(e) => setTelefone(e.target.value)}
         />
             <input
             type= "text"
             placeholder= "Senha do Usuario"
             value= {senha}
-            onCharge= {(e) => setSenha(e.target.value)}
+            onChange= {(e) => setSenha(e.target.value)}
         />
 
          <input

@@ -1,10 +1,9 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import ClienteForm from '../src/app/components/ClienteForm'
+import Produto from '../src/app/components/Produto'
 
-describe('ClienteForm', () => {
+describe('Produto' , () => {
   it('renderiza sem erros', () => {
-    render(<ClienteForm />)
+    render(<Produto />)
   })
 })
-
