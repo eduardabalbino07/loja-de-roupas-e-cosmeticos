@@ -4,6 +4,6 @@ import ClienteList from '../src/app/components/ClienteList'
 
 describe('ClienteList', () => {
   it('renderiza sem erros', () => {
-    render(<ClienteList />)
+    render(<ClienteList  clientes={[]} />)
   })
 })
